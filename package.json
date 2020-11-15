@@ -1,0 +1,25 @@
+{
+  "name": "yvoshop",
+  "version": "1.0.0",
+  "description": "Mern Ecommerce Shopping App",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvonnkr/yvoshop-mern.git"
+  },
+  "author": "Yvonne Nkrunzanzi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yvonnkr/yvoshop-mern/issues"
+  },
+  "homepage": "https://github.com/yvonnkr/yvoshop-mern#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
