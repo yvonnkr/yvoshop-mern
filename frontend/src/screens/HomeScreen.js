@@ -7,9 +7,8 @@ import Loader from "../components/Loader";
 import { listProducts } from "../actions/productActions";
 
 const HomeScreen = () => {
-  const { products, loading, error } = useSelector(
-    (state) => state.productList
-  );
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
 
   const dispatch = useDispatch();
 
