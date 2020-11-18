@@ -33,27 +33,20 @@ const ProductScreen = ({ match, history }) => {
   };
 
   const renderImage = () => (
-    <Col md={6}>
-      <Image src={product.image} alt={product.name} fluid></Image>
-    </Col>
+    <Image src={product.image} alt={product.name} fluid></Image>
   );
 
   const renderDescription = () => (
-    <Col md={3}>
-      <ListGroup variant="flush">
-        <ListGroup.Item>
-          <h3>{product.name}</h3>
-        </ListGroup.Item>
-        <ListGroup.Item>
-          <Rating
-            value={product.rating}
-            text={`${product.numReviews} reviews`}
-          />
-        </ListGroup.Item>
-        <ListGroup.Item>Price: £{product.price}</ListGroup.Item>
-        <ListGroup.Item>Description: {product.description}</ListGroup.Item>
-      </ListGroup>
-    </Col>
+    <ListGroup variant="flush">
+      <ListGroup.Item>
+        <h3>{product.name}</h3>
+      </ListGroup.Item>
+      <ListGroup.Item>
+        <Rating value={product.rating} text={`${product.numReviews} reviews`} />
+      </ListGroup.Item>
+      <ListGroup.Item>Price: £{product.price}</ListGroup.Item>
+      <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+    </ListGroup>
   );
 
   const renderPrice = () => (
@@ -81,7 +74,7 @@ const ProductScreen = ({ match, history }) => {
       <ListGroup.Item>
         <Row>
           <Col>Qty:</Col>
-          <Col md={8}>
+          <Col md={9}>
             <Form.Control
               as="select"
               value={qty}
@@ -114,9 +107,9 @@ const ProductScreen = ({ match, history }) => {
 
   const renderProduct = () => (
     <Row>
-      {renderImage()}
+      <Col md={6}>{renderImage()}</Col>
 
-      {renderDescription()}
+      <Col md={3}>{renderDescription()}</Col>
 
       <Col md={3}>
         <Card>
