@@ -35,7 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 });
 
-// @desc Auth user & get token
+// @desc Auth/Login user & get token
 // @route POST /api/users/login
 // @access Public
 const authUser = asyncHandler(async (req, res) => {
@@ -60,7 +60,7 @@ const authUser = asyncHandler(async (req, res) => {
 });
 
 // @desc Get user profile
-// @route GE /api/users/profile
+// @route GET /api/users/profile
 // @access Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
@@ -79,4 +79,34 @@ const getUserProfile = asyncHandler(async (req, res) => {
   });
 });
 
-export { registerUser, authUser, getUserProfile };
+// @desc Update user profile
+// @route PUT /api/users/profile
+// @access Private
+const updateUserProfile = asyncHandler(async (req, res) => {
+  const { name, email, password } = req.body;
+
+  const user = await User.findById(req.user._id).select("-password");
+
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  }
+
+  user.name = name || user.name;
+  user.email = email || user.email;
+  if (password) {
+    user.password = password;
+  }
+
+  const updatedUser = await user.save();
+
+  res.json({
+    _id: updatedUser._id,
+    name: updatedUser.name,
+    email: updatedUser.email,
+    isAdmin: updatedUser.isAdmin,
+    token: generateToken(updatedUser._id),
+  });
+});
+
+export { registerUser, authUser, getUserProfile, updateUserProfile };
