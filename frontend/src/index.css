@@ -24,3 +24,7 @@ h3 {
   text-decoration: none;
   color: #b17e07;
 }
+
+.active-step {
+  color: #e9240a;
+}
