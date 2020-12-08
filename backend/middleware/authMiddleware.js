@@ -26,3 +26,14 @@ export const requireAuth = asyncHandler(async (req, res, next) => {
     throw new Error("Not authorized");
   }
 });
+
+export const isAdmin = asyncHandler(async (req, res, next) => {
+  const user = req.user;
+
+  if (user && !user.isAdmin) {
+    res.status(401);
+    throw new Error("Not authorized as an admin");
+  }
+
+  next();
+});

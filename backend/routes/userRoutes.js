@@ -4,13 +4,19 @@ import {
   authUser,
   getUserProfile,
   updateUserProfile,
+  getUsers,
 } from "../controllers/userController.js";
-import { requireAuth } from "../middleware/authMiddleware.js";
+import { isAdmin, requireAuth } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.post("/", registerUser);
+// prettier-ignore
+router.route("/")
+  .post(registerUser)
+  .get([requireAuth, isAdmin], getUsers);
+
 router.post("/login", authUser);
+
 router
   .route("/profile")
   .get(requireAuth, getUserProfile)
