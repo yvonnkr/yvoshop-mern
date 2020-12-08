@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import { PayPalButton } from "react-paypal-button-v2";
 import axios from "axios";
+import moment from "moment";
 import Message from "../components/Message";
 import { getOrderDetails, payOrder } from "../actions/orderActions";
 import Loader from "../components/Loader";
@@ -103,7 +104,10 @@ const OrderScreen = ({ match }) => {
           {order.shippingAddress.postalCode},{order.shippingAddress.country}
         </p>
         {order.isDelivered ? (
-          <Message variant="success">Delivered on {order.deliveredAt}</Message>
+          <Message variant="success">
+            Delivered on{" "}
+            {moment(order.deliveredAt).format("Do MMM YYYY, h:mm a")}
+          </Message>
         ) : (
           <Message variant="danger">Not Delivered</Message>
         )}
@@ -116,7 +120,9 @@ const OrderScreen = ({ match }) => {
           {order.paymentMethod}
         </p>
         {order.isPaid ? (
-          <Message variant="success">Paid on {order.paidAt} </Message>
+          <Message variant="success">
+            Paid on {moment(order.paidAt).format("Do MMM YYYY, h:mm a")}
+          </Message>
         ) : (
           <Message variant="danger">Not Paid </Message>
         )}
