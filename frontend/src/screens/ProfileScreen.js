@@ -40,7 +40,7 @@ const ProfileScreen = ({ location, history }) => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user]);
+  }, [dispatch, history, userInfo, user, orders]);
 
   const submitHandler = (e) => {
     e.preventDefault();

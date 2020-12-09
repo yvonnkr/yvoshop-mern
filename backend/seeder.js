@@ -59,7 +59,8 @@ if (process.argv[2] === "-d") {
 }
 
 /**
- * To Run  --(-d for destroyData() else importData()) --added script on package.json
+ * To Run
+ * (-d for destroyData() else importData()) --added script on package.json
  * node backend/seeder
  * node backend/seeder -d
  *  */
