@@ -100,7 +100,7 @@ const ProfileScreen = ({ location, history }) => {
     </Form>
   );
 
-  const renderOrdersList = () =>
+  const renderUserList = () =>
     loadingOrders ? (
       <Loader />
     ) : errorOrders ? (
@@ -166,7 +166,7 @@ const ProfileScreen = ({ location, history }) => {
       <Col md={9}>
         <h2>My Orders</h2>
 
-        {renderOrdersList()}
+        {renderUserList()}
       </Col>
     </Row>
   );
