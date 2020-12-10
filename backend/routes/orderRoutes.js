@@ -6,6 +6,7 @@ import {
   updateOrderToPaid,
   getMyOrders,
   getOrders,
+  updateOrderToDelivered,
 } from "../controllers/orderController.js";
 
 const router = express.Router();
@@ -20,5 +21,6 @@ router.route("/myorders").get(requireAuth, getMyOrders);
 router.route("/:id").get(requireAuth, getOrderById);
 
 router.route("/:id/pay").put(requireAuth, updateOrderToPaid);
+router.route("/:id/deliver").put(requireAuth, isAdmin, updateOrderToDelivered);
 
 export default router;
