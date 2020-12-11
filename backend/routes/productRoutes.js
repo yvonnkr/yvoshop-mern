@@ -6,6 +6,7 @@ import {
   deleteProduct,
   createProduct,
   updateProduct,
+  createProductReview,
 } from "../controllers/productController.js";
 
 const router = express.Router();
@@ -17,5 +18,7 @@ router
   .get(getProductById)
   .delete(requireAuth, isAdmin, deleteProduct)
   .put(requireAuth, isAdmin, updateProduct);
+
+router.route("/:id/reviews").post(requireAuth, createProductReview);
 
 export default router;
