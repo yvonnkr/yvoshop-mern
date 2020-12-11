@@ -5,17 +5,20 @@ import Product from "../components/Product";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listProducts } from "../actions/productActions";
+import Paginate from "../components/Paginate";
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
+  const pageNumber = match.params.pageNumber || 1;
+
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const { loading, error, products, page, pages } = productList;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listProducts(keyword));
-  }, [dispatch, keyword]);
+    dispatch(listProducts(keyword, pageNumber));
+  }, [dispatch, keyword, pageNumber]);
 
   const renderProducts = () => (
     <Row>
@@ -33,9 +36,11 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <h1>Featured Products</h1>
+      <h1>Latest Products</h1>
 
       {renderProducts()}
+
+      <Paginate page={page} pages={pages} keyword={keyword ? keyword : ""} />
     </>
   );
 };
