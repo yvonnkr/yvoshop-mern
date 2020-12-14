@@ -4,6 +4,7 @@ import { Form, Button, Col } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
 import { savePaymentMethod } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
+import MetaHelmet from "../components/MetaHelmet";
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -59,13 +60,17 @@ const PaymentScreen = ({ history }) => {
   );
 
   return (
-    <FormContainer>
-      <CheckoutSteps step1 step2 step3 />
+    <>
+      <MetaHelmet title={"YvoShop | Payment"} />
 
-      <h1>Payment Method</h1>
+      <FormContainer>
+        <CheckoutSteps step1 step2 step3 />
 
-      {renderForm()}
-    </FormContainer>
+        <h1>Payment Method</h1>
+
+        {renderForm()}
+      </FormContainer>
+    </>
   );
 };
 

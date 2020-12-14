@@ -11,6 +11,7 @@ import {
 } from "../actions/productActions";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
 import Paginate from "../components/Paginate";
+import MetaHelmet from "../components/MetaHelmet";
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -117,6 +118,8 @@ const ProductListScreen = ({ history, match }) => {
 
   return (
     <>
+      <MetaHelmet title={"YvoShop | Products"} />
+
       <Row className="align-items-center">
         <Col>
           <h1>Products</h1>

@@ -5,6 +5,7 @@ import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap";
 import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import { createOrder } from "../actions/orderActions";
+import MetaHelmet from "../components/MetaHelmet";
 
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -160,6 +161,8 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <>
+      <MetaHelmet title={"YvoShop | Place Order"} />
+
       <CheckoutSteps step1 step2 step3 step4 />
 
       <Row>

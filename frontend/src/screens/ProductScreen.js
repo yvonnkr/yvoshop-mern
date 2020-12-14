@@ -18,6 +18,7 @@ import {
   createProductReview,
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import MetaHelmet from "../components/MetaHelmet";
 
 const ProductScreen = ({ match, history }) => {
   const productId = match.params.id;
@@ -235,6 +236,11 @@ const ProductScreen = ({ match, history }) => {
 
   return (
     <>
+      <MetaHelmet
+        title={`YvoShop | ${product.name}`}
+        description={product.description}
+      />
+
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>

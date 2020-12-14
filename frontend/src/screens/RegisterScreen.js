@@ -6,6 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { register } from "../actions/userActions";
 import FormContainer from "../components/FormContainer";
+import MetaHelmet from "../components/MetaHelmet";
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -85,29 +86,33 @@ const RegisterScreen = ({ location, history }) => {
   );
 
   return (
-    <FormContainer>
-      <h1>Register</h1>
+    <>
+      <MetaHelmet title="YvoShop | Register" />
 
-      {message && <Message variant="danger">{message}</Message>}
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />}
+      <FormContainer>
+        <h1>Register</h1>
 
-      {renderForm()}
+        {message && <Message variant="danger">{message}</Message>}
+        {error && <Message variant="danger">{error}</Message>}
+        {loading && <Loader />}
 
-      <Row className="py-3">
-        <Col>
-          <h4>
-            Already Registered?{" "}
-            <Link
-              to={redirect ? `/login?redirect=${redirect}` : "/login"}
-              className="all-links"
-            >
-              Sign In
-            </Link>
-          </h4>
-        </Col>
-      </Row>
-    </FormContainer>
+        {renderForm()}
+
+        <Row className="py-3">
+          <Col>
+            <h4>
+              Already Registered?{" "}
+              <Link
+                to={redirect ? `/login?redirect=${redirect}` : "/login"}
+                className="all-links"
+              >
+                Sign In
+              </Link>
+            </h4>
+          </Col>
+        </Row>
+      </FormContainer>
+    </>
   );
 };
 

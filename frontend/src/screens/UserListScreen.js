@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { deleteUser, listUsers } from "../actions/userActions";
+import MetaHelmet from "../components/MetaHelmet";
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -84,6 +85,8 @@ const UserListScreen = ({ history }) => {
 
   return (
     <>
+      <MetaHelmet title="YvoShop | Users" />
+
       <h1>Users</h1>
 
       {loading ? (

@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
+import MetaHelmet from "../components/MetaHelmet";
 
 const CartScreen = ({ match, location, history }) => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -119,14 +120,18 @@ const CartScreen = ({ match, location, history }) => {
   );
 
   return (
-    <Row>
-      <Col md={8}>
-        <h1>Shopping Cart</h1>
-        {renderShoppingCart()}
-      </Col>
+    <>
+      <MetaHelmet title={"YvoShop | Cart"} />
 
-      <Col md={4}>{renderTotalCheckout()}</Col>
-    </Row>
+      <Row>
+        <Col md={8}>
+          <h1>Shopping Cart</h1>
+          {renderShoppingCart()}
+        </Col>
+
+        <Col md={4}>{renderTotalCheckout()}</Col>
+      </Row>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
+import MetaHelmet from "../components/MetaHelmet";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -151,24 +152,28 @@ const ProfileScreen = ({ location, history }) => {
     );
 
   return (
-    <Row>
-      <Col md={3}>
-        <h2>Profile</h2>
+    <>
+      <MetaHelmet title="YvoShop | Profile" />
 
-        {message && <Message variant="danger">{message}</Message>}
-        {error && <Message variant="danger">{error}</Message>}
-        {success && <Message variant="success">Profile Updated</Message>}
-        {loading && <Loader />}
+      <Row>
+        <Col md={3}>
+          <h2>Profile</h2>
 
-        {renderForm()}
-      </Col>
+          {message && <Message variant="danger">{message}</Message>}
+          {error && <Message variant="danger">{error}</Message>}
+          {success && <Message variant="success">Profile Updated</Message>}
+          {loading && <Loader />}
 
-      <Col md={9}>
-        <h2>My Orders</h2>
+          {renderForm()}
+        </Col>
 
-        {renderUserList()}
-      </Col>
-    </Row>
+        <Col md={9}>
+          <h2>My Orders</h2>
+
+          {renderUserList()}
+        </Col>
+      </Row>
+    </>
   );
 };
 

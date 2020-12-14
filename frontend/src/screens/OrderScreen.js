@@ -16,6 +16,7 @@ import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
 } from "../constants/orderConstants";
+import MetaHelmet from "../components/MetaHelmet";
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
@@ -234,6 +235,8 @@ const OrderScreen = ({ match, history }) => {
 
   return (
     <>
+      <MetaHelmet title={"YvoShop | Order"} />
+
       <h1>Order {order._id} </h1>
 
       <Row>

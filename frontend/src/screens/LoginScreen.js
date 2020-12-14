@@ -6,6 +6,7 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { login } from "../actions/userActions";
 import FormContainer from "../components/FormContainer";
+import MetaHelmet from "../components/MetaHelmet";
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -59,28 +60,32 @@ const LoginScreen = ({ location, history }) => {
   );
 
   return (
-    <FormContainer>
-      <h1>Sign In</h1>
+    <>
+      <MetaHelmet title={"YvoShop | Login"} />
 
-      {error && <Message variant="danger">{error}</Message>}
-      {loading && <Loader />}
+      <FormContainer>
+        <h1>Sign In</h1>
 
-      {renderForm()}
+        {error && <Message variant="danger">{error}</Message>}
+        {loading && <Loader />}
 
-      <Row className="py-3">
-        <Col>
-          <h4>
-            New Customer?{" "}
-            <Link
-              to={redirect ? `/register?redirect=${redirect}` : "/register"}
-              className="all-links"
-            >
-              Register
-            </Link>
-          </h4>
-        </Col>
-      </Row>
-    </FormContainer>
+        {renderForm()}
+
+        <Row className="py-3">
+          <Col>
+            <h4>
+              New Customer?{" "}
+              <Link
+                to={redirect ? `/register?redirect=${redirect}` : "/register"}
+                className="all-links"
+              >
+                Register
+              </Link>
+            </h4>
+          </Col>
+        </Row>
+      </FormContainer>
+    </>
   );
 };
 

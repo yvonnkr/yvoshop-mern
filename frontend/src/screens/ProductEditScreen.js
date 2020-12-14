@@ -8,6 +8,7 @@ import Loader from "../components/Loader";
 import { listProductDetails, updateProduct } from "../actions/productActions";
 import FormContainer from "../components/FormContainer";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
+import MetaHelmet from "../components/MetaHelmet";
 
 const ProductEditScreen = ({ match, history }) => {
   const productId = match.params.id;
@@ -181,6 +182,8 @@ const ProductEditScreen = ({ match, history }) => {
 
   return (
     <>
+      <MetaHelmet title={"YvoShop | Edit Product"} />
+
       <Link to="/admin/productlist" className="btn btn-light my-3">
         Go Back
       </Link>

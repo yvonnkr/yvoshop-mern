@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { listOrders } from "../actions/orderActions";
+import MetaHelmet from "../components/MetaHelmet";
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -72,6 +73,8 @@ const OrderListScreen = ({ history }) => {
 
   return (
     <>
+      <MetaHelmet title={"YvoShop | Orders"} />
+
       <h1>Orders</h1>
 
       {loading ? (
