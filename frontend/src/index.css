@@ -29,6 +29,11 @@ h3 {
   color: #030303;
 }
 
+/* Navbar */
+.navbar {
+  background-color: rgba(73, 82, 80, 0.877);
+}
+
 /* carousel */
 .carousel {
   background-color: rgba(73, 82, 80, 0.623);
